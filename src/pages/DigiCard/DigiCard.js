@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import styled from "styled-components";
 import cargandoGif from "./cargando.gif"
 import errorGif from "./error.gif"
+import background from './background.png';
 
 export const DigiCard = ({digimon, addFavorite, favorites, deleteFavorite}) => {
   const [digimonData, setDigimonData] = React.useState();
@@ -109,7 +110,7 @@ const IniCard = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("https://images8.alphacoders.com/781/thumb-1920-781243.png");
+  background-image: url(${background});
   background-size: cover;
 `;
 
