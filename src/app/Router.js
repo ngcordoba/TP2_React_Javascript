@@ -5,12 +5,16 @@ import { HomePage, DigiCard } from "../pages";
 export const Router = () => {
   const [digimon, setDigimon] = React.useState("");
   const [favorites, setFavorites] = React.useState([]);
-  console.log(digimon);
+  console.log(digimon); // Borrar log 
 
+  // No es recomendable que el argumento de la función tenga el mismo nombre que el estado
+  // del componente, puede generar errores.
   function handlerSetDigimon(digimon) {
     setDigimon(digimon);
   }
 
+  // No es recomendable que el argumento de la función tenga el mismo nombre que el estado
+  // del componente, puede generar errores.
   function handleAddFavorite(digimon) {
     setFavorites((oldFavorites) => [...oldFavorites, digimon]);
   }
@@ -19,9 +23,7 @@ export const Router = () => {
     setFavorites(favorites.filter((favorite) => favorite.name !== digimonName));
   }
 
-  
-
-  console.log("FAVORITES", favorites);
+  console.log("FAVORITES", favorites); // Borrar log
 
   return (
     <BrowserRouter>
@@ -34,8 +36,6 @@ export const Router = () => {
             deleteFavorite={deleteFavorite}
           />
         </Route>
-
-
 
         <Route path="/">
           <HomePage favorites={favorites} setDigimon={handlerSetDigimon} />

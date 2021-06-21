@@ -27,16 +27,17 @@ export const DigiCard = ({digimon, addFavorite, favorites, deleteFavorite}) => {
     )
     .catch((error) => setStatus("error"));
   }, [digimon]);
-  
 
-  
+  console.log('favorites', favorites)
 
-  const favoritesNames = favorites.map((favorites) => favorites.name);
+  const favoritesNames = favorites.map((favorite) => favorite.name);
+
+  console.log('favoritesNames', favoritesNames)
 
   const isDigimonAdded =
-    digimonData && favoritesNames.includes(digimonData.name);
+    digimonData && favoritesNames.includes(digimonData[0].name);
 
-  console.log(isDigimonAdded);
+  console.log(isDigimonAdded); // Borrar log
 
   if (digimonData && status === "success") {
     return (
@@ -57,7 +58,7 @@ export const DigiCard = ({digimon, addFavorite, favorites, deleteFavorite}) => {
                     <button onClick={() => history.push("./")}> Volver a la Home</button>
                     <button onClick={
                         isDigimonAdded
-                          ? () => deleteFavorite(digimonData.name)
+                          ? () => deleteFavorite(digimonData[0].name)
                           : () => addFavorite(digimonData)
                       }>
                       {isDigimonAdded ? "Borrar Favorito" : "Agregar Favorito"}

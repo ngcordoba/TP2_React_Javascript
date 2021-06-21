@@ -4,21 +4,22 @@ import styled from "styled-components";
 import DigimonLogo  from "./digimonlogo.png";
 import background from './background.png';
 
-export const HomePage = ({ favorites, setDigimon}) => {
+export const HomePage = ({favorites, setDigimon}) => {
   const [input, setInput] = React.useState();
 
   const history = useHistory();
 
   function handleSearchClick() {
-    if(input === null || input === undefined){
+    if (input === null || input === undefined){
       alert('Ingrese un digimon valido'); 
       history.replace('./')
     } else {
-    setDigimon(input.toLowerCase());
-    history.replace("/card");
+      setDigimon(input.toLowerCase());
+      history.replace("/card");
     }
   }
 
+  // Esto no va a ningún lado porque no existe la ruta '/favoritos'
   function handleFavoriteClick() {
     history.replace("/favoritos");
   }
@@ -27,9 +28,10 @@ export const HomePage = ({ favorites, setDigimon}) => {
     setInput(event.target.value);
   }
 
+  // Esto no funciona porque la API no es compatible con esta búsqueda
   const handleRandomClick = () => {
     const randomDigimon = Math.floor(Math.random() * 671) + 1;
-    setDigimon(randomDigimon );
+    setDigimon(randomDigimon);
     history.replace("./card");
   };
 
@@ -42,11 +44,10 @@ export const HomePage = ({ favorites, setDigimon}) => {
           placeholder="Escribi el digimon que deseas buscar"
           value={input}
           onChange={handleInputChange}
-          type="search"
+          type="search" // type="text"
         />
         <ButtonsWrapper>
-          <button onClick={
-            handleSearchClick}>Buscar</button>
+          <button onClick={handleSearchClick}>Buscar</button>
           <button onClick={handleRandomClick}>Random Digimon</button>
           <button onClick={handleFavoriteClick}>Mis Favoritos</button>
           
