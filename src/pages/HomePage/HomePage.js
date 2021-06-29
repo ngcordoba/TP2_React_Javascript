@@ -45,8 +45,7 @@ export const HomePage = ({ favorites, setDigimon}) => {
           type="search"
         />
         <ButtonsWrapper>
-          <button onClick={
-            handleSearchClick}>Buscar</button>
+          <button onClick={handleSearchClick}>Buscar</button>
           <button onClick={handleRandomClick}>Random Digimon</button>
           <button onClick={handleFavoriteClick}>Mis Favoritos</button>
           

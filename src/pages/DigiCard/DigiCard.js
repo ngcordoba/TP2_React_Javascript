@@ -13,7 +13,7 @@ export const DigiCard = ({digimon, addFavorite, favorites, deleteFavorite}) => {
 
   React.useEffect(() => {
     setStatus("Cargando");
-    fetch(`https://digimon-api.herokuapp.com/api/digimon/name/${digimon}`)
+    fetch(`https://digimon-api.vercel.app/api/digimon/name/${digimon}`)
     .then((response) => 
     response.json().then((data) => {
       console.log(data);
